@@ -14,9 +14,6 @@ pipeline{
             }
         }
         stage ("Sonar Analysis"){
-            environment (
-                scannerHome = tool 'SONAR_SCANNER'
-            )
             steps{
                 script {
                     def scannerHome = tool 'SONAR_SCANNER'
