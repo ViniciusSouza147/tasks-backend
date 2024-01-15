@@ -18,9 +18,12 @@ pipeline{
                 scannerHome = tool 'SONAR_SCANNER'
             )
             steps{
-                echo "====++++ Executing Sonar Analysis ++++===="
-                withSonarQubeEnv('SONAR_LOCAL') {
-                    sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=88e44ed433a6bb3b41dc97da1dc6fe71685d7025 -Dsonar.java.binaries=target"
+                script {
+                    def scannerHome = tool 'SONAR_SCANER'
+                    echo "====++++ Executing Sonar Analysis ++++===="
+                    withSonarQubeEnv('SONAR_LOCAL') {
+                        sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=88e44ed433a6bb3b41dc97da1dc6fe71685d7025 -Dsonar.java.binaries=target"
+                    }
                 }
             }
         }
