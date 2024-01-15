@@ -13,9 +13,9 @@ pipeline{
                 sh 'mvn test'
             }
         }
-        stage("Sonar Analysis"){
+        stage ("Sonar Analysis"){
             environment (
-                scannerHome = tools 'SONAR_SCANER'
+                scannerHome = tool 'SONAR_SCANNER'
             )
             steps{
                 echo "====++++ Executing Sonar Analysis ++++===="
