@@ -15,7 +15,7 @@ pipeline{
         }
         stage("Sonar Analysis"){
             environment (
-                scannerHome = tool 'SONAR_SCANER'
+                scannerHome = tools 'SONAR_SCANER'
             )
             steps{
                 echo "====++++ Executing Sonar Analysis ++++===="
